@@ -1,17 +1,18 @@
 const fs = require("fs");
 
 // Part 1 Read json file ===========================
-const rawdata = fs.readFileSync("explorers.json");
-const explorers = JSON.parse(rawdata);
+const rawdata = fs.readFileSync("explorers.json"); //lee un archivo, pero lo no continua el codigo hasta que termine de leer
+const explorers = JSON.parse(rawdata); //lo conviernte a JSON
 
 // Part 2: Get the quantity of explorers names in node
-const explorersInNode = explorers.filter((explorer) => explorer.mission == "node");
-//console.log(explorersInNode.length)
+const explorersInNode = explorers.filter((explorer) => explorer.mission == "node"); //cuenta cuantas personas cumplen con el filtrado que tengan como mision node
+console.log("persona que estan en node mission " + explorersInNode.length)
 
 // Part4: Get the explorer's usernames in Node
 const explorersInNodeToGetUsernames = explorers.filter((explorer) => explorer.mission == "node");
-const usernamesInNode = explorersInNodeToGetUsernames.map((explorer) => explorer.githubUsername);
-//console.log(usernamesInNode)
+const usernamesInNode = explorersInNodeToGetUsernames.map((explorer) => explorer.githubUsername); //crea una lista con solo los nombres de usuario de las personas
+console.log(`lista de nombres de usuario que cursan el curso de node`)
+console.log(usernamesInNode);
 
 // DEAD CODE: Part 5,6,7, please remove this and go to Part 8!
 
@@ -21,8 +22,8 @@ const usernamesInNode = explorersInNodeToGetUsernames.map((explorer) => explorer
 // Score: 5, Trick: 5.
 
 const assignFizzTrick = function(explorer){
-    if(explorer.score%3 === 0){
-        explorer.trick = "FIZZ";
+    if(explorer.score % 3 === 0){ //ve si es divisible entre tres
+        explorer.trick = "FIZZ"; //agrega la propiedad trick
         return explorer;
     }else{
         explorer.trick = explorer.score;
@@ -30,7 +31,8 @@ const assignFizzTrick = function(explorer){
     }
 };
 
-const explorersInNodeAndFizzTrick = explorersInNode.map((explorer) => assignFizzTrick(explorer));
+const explorersInNodeAndFizzTrick = explorersInNode.map((explorer) => assignFizzTrick(explorer)); //a la lista de los explorers que estan en node le hace un map modificando la propiedad de trick, solo si cumple lo establecido en la funcion
+console.log(explorersInNodeAndFizzTrick);
 
 // Part 6: Get a new list of explorers in node if the score number is divisible by 5, we need to set a new property called trick and set the value BUZZ, if not this value should be just the score
 //
