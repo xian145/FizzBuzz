@@ -1,8 +1,8 @@
-const Reader = require('./lib/utils/Reader')
-const ExplorerService = require('./lib/services/ExplorerService')
+const Reader = require("./lib/utils/Reader");
+const ExplorerService = require("./lib/services/ExplorerService");
 
 //Clase con la que obtenemos la lista de explorers
-const explorers = Reader.readJsonFile('explorers.json')
+const explorers = Reader.readJsonFile("explorers.json");
 
 //filtrado sobre la lista de explorers
 ExplorerService.filterByMission(explorers, "node");
