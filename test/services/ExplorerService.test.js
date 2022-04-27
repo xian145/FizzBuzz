@@ -5,7 +5,7 @@ describe('Test para explorer service', () => {
     test('1. How many explorers are in the mission Node.js', () => {
         const explorers = Reader.readJsonFile('explorers.json')
         const explorersInNode = ExplorerService.filterByMission(explorers, 'node');
-        expect(explorersInNode.length).toBe(10)
+        expect(explorersInNode).toHaveLength(10)
     })
 
     test('2. Amount of explorers by mission', () => {
@@ -13,4 +13,12 @@ describe('Test para explorer service', () => {
         const explorersInNode = ExplorerService.getAmountOfExplorersByMission(explorers, 'node');
         expect(explorersInNode).toBe(10)
     })
+
+    test('3. Mentions ajolonauta', () => {
+        const explorers = Reader.readJsonFile('explorers.json')
+        const userNameInNode = ExplorerService.getExplorersUsernamesByMission(explorers, 'node')
+        const ajolonautas = ['ajolonauta1']
+        expect(userNameInNode).toEqual(expect.arrayContaining(ajolonautas));
+    });
+
 })
