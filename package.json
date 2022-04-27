@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/xian145/FizzBuzz/issues"
   },
-  "homepage": "https://github.com/xian145/FizzBuzz#readme"
+  "homepage": "https://github.com/xian145/FizzBuzz#readme",
+  "devDependencies": {
+    "jest": "^28.0.1"
+  }
 }
