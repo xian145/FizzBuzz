@@ -7,4 +7,10 @@ describe('Test para explorer service', () => {
         const explorersInNode = ExplorerService.filterByMission(explorers, 'node');
         expect(explorersInNode.length).toBe(10)
     })
+
+    test('2. Amount of explorers by mission', () => {
+        const explorers = Reader.readJsonFile('explorers.json')
+        const explorersInNode = ExplorerService.getAmountOfExplorersByMission(explorers, 'node');
+        expect(explorersInNode).toBe(10)
+    })
 })
