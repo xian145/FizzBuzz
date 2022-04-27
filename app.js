@@ -1,20 +1,13 @@
 const Reader = require('./lib/utils/Reader')
+const ExplorerService = require('./lib/services/ExplorerService')
 
-// Part 1 Read json file
-const prueba = Reader.readJsonFile('explorers.json')
+//Clase con la que obtenemos la lista de explorers
+const explorers = Reader.readJsonFile('explorers.json')
 
-
-// Part 2: Get the quantity of explorers names in node
-const explorersInNode = explorers.filter((explorer) => explorer.mission == "node"); //cuenta cuantas personas cumplen con el filtrado que tengan como mision node
-//console.log("persona que estan en node mission " + explorersInNode.length)
-
-// Part4: Get the explorer's usernames in Node
-const explorersInNodeToGetUsernames = explorers.filter((explorer) => explorer.mission == "node");
-const usernamesInNode = explorersInNodeToGetUsernames.map((explorer) => explorer.githubUsername); //crea una lista con solo los nombres de usuario de las personas
-//console.log(`lista de nombres de usuario que cursan el curso de node`)
-//console.log(usernamesInNode);
-
-// DEAD CODE: Part 5,6,7, please remove this and go to Part 8!
+//filtrado sobre la lista de explorers
+ExplorerService.filterByMission(explorers, "node");
+ExplorerService.getAmountOfExplorersByMission(explorers, "node");
+ExplorerService.getExplorersUsernamesByMission(explorers, "node");
 
 // Part 5: Get a new list of explorers in node, if the score numbers is divisible by 3, I need a new propery called trick, and the value assigned is FIZZ, if not the value should be the score itself.
 // Score: 3, Trick: FIZZ.
