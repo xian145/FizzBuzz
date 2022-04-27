@@ -1,18 +1,18 @@
-const fs = require("fs");
+const Reader = require('./lib/utils/Reader')
 
-// Part 1 Read json file ===========================
-const rawdata = fs.readFileSync("explorers.json"); //lee un archivo, pero lo no continua el codigo hasta que termine de leer
-const explorers = JSON.parse(rawdata); //lo conviernte a JSON
+// Part 1 Read json file
+const prueba = Reader.readJsonFile('explorers.json')
+
 
 // Part 2: Get the quantity of explorers names in node
 const explorersInNode = explorers.filter((explorer) => explorer.mission == "node"); //cuenta cuantas personas cumplen con el filtrado que tengan como mision node
-console.log("persona que estan en node mission " + explorersInNode.length)
+//console.log("persona que estan en node mission " + explorersInNode.length)
 
 // Part4: Get the explorer's usernames in Node
 const explorersInNodeToGetUsernames = explorers.filter((explorer) => explorer.mission == "node");
 const usernamesInNode = explorersInNodeToGetUsernames.map((explorer) => explorer.githubUsername); //crea una lista con solo los nombres de usuario de las personas
-console.log(`lista de nombres de usuario que cursan el curso de node`)
-console.log(usernamesInNode);
+//console.log(`lista de nombres de usuario que cursan el curso de node`)
+//console.log(usernamesInNode);
 
 // DEAD CODE: Part 5,6,7, please remove this and go to Part 8!
 
@@ -32,7 +32,7 @@ const assignFizzTrick = function(explorer){
 };
 
 const explorersInNodeAndFizzTrick = explorersInNode.map((explorer) => assignFizzTrick(explorer)); //a la lista de los explorers que estan en node le hace un map modificando la propiedad de trick, solo si cumple lo establecido en la funcion
-console.log(explorersInNodeAndFizzTrick);
+//console.log(explorersInNodeAndFizzTrick);
 
 // Part 6: Get a new list of explorers in node if the score number is divisible by 5, we need to set a new property called trick and set the value BUZZ, if not this value should be just the score
 //
