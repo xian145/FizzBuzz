@@ -18,4 +18,11 @@ describe("Test para explorerController", () => {
         expect(explorers).toEqual(expect.arrayContaining(ajolonautas));
     });
 
+    test("4. Telegram bot", () => {
+        const message = 'node'
+        const num = "xd"
+        const explorer = ExplorerController.bot(num, message)
+        expect(explorer).toMatch(/Woopa/);
+    })
+
 });
